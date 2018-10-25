@@ -8,7 +8,11 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
   "dependencies": {
     "express": "^4.16.4",
     "morgan": "^1.9.1",
@@ -28,6 +32,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "jest": "^23.6.0",
+    "nodemon": "^1.18.4",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2"
   }
