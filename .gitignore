@@ -27,3 +27,5 @@ dist/
 #Compiled files
 bundle.js
 
+# Configuration files
+config.js
