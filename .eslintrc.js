@@ -1,10 +1,10 @@
 /**
- * These rules enforce the Hack Reactor Style Guide
+ * These rules enforce the Airbnb Style Guide
  *
  * Visit this repo for more information:
- *   https://github.com/reactorcore/eslint-config-hackreactor
+ *   https://www.npmjs.com/package/eslint-config-airbnb
  */
 
 module.exports = {
-  extends: './node_modules/eslint-config-hackreactor/index.js'
+  extends: 'airbnb'
 };
