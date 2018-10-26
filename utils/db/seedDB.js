@@ -38,19 +38,22 @@ const createPhotosArray = (numListings) => {
     // Randomly determine number of images for a listing id
     // between 5 and 20 then create that many image objects
     for (let j = 1; j <= generateRandomNumber(5, 20); j += 1) {
-      const newImageObject = createRandomImageObject(j, getRandomImageUrl(34), i);
+      const newImageObject = createRandomImageObject(j, getRandomImageUrl(mockImageCount), i);
       photosArray.push(newImageObject);
     }
   }
   return photosArray;
 };
 
-// Save image records to database for 100 listings
+// Create and save records for 100 listings
 db.sync()
   .then(() => {
-    Photo.bulkCreate(createPhotosArray(100));
+    return Photo.bulkCreate(createPhotosArray(100));
   })
-  .then((photoRecords) => {
-    console.log(`Records seeded into the database`);
+  .then(() => {
+    console.log('Records seeded into the database');
   })
-  .catch(console.error);
+  .finally(() => {
+    db.close();
+  })
+  .catch(e => console.error(e));
