@@ -10,7 +10,9 @@ CREATE TABLE photos (
   alt_text VARCHAR(255),
   is_verified_photo BOOLEAN DEFAULT false,
   listing_id INT NOT NULL,
-  image_url VARCHAR(2000) NOT NULL
+  image_url VARCHAR(2000) NOT NULL,
+  createdAt DATE,
+  updatedAt DATE
 );
 
 
