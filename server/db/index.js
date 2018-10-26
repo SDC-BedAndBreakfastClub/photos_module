@@ -6,6 +6,4 @@ const db = new Sequelize('airbnb_clone', CONFIG.MYSQL_USER, CONFIG.MYSQL_PASS, {
   dialect: 'mysql',
 });
 
-module.exports = {
-  db,
-};
+module.exports = db;
