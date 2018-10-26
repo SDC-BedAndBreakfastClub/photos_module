@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const { db } = require('../db');
+const db = require('../db');
 
 const Photo = db.define('photo', {
   id: {
@@ -16,7 +16,7 @@ const Photo = db.define('photo', {
   alt_text: {
     type: Sequelize.STRING,
   },
-  verified_photo: {
+  is_verified_photo: {
     type: Sequelize.BOOLEAN,
     defaultValue: false,
   },
