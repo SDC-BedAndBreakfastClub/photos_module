@@ -1,5 +1,5 @@
 const faker = require('faker');
-const { sprintf } = require('sprintf-js')
+const { sprintf } = require('sprintf-js');
 const db = require('../../server/db');
 const Photo = require('../../server/model');
 
@@ -47,13 +47,13 @@ const createPhotosArray = (numListings) => {
 
 // Create and save records for 100 listings
 db.sync()
+  .then(() => Photo.bulkCreate(createPhotosArray(100)))
   .then(() => {
-    return Photo.bulkCreate(createPhotosArray(100));
-  })
-  .then(() => {
+    // eslint-disable-next-line no-console
     console.log('Records seeded into the database');
   })
   .finally(() => {
     db.close();
   })
+  // eslint-disable-next-line no-console
   .catch(e => console.error(e));
