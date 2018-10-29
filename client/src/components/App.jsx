@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const App = () => (
-  <div>Photo Module</div>
-);
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      photos: [],
+    }
+  }
+
+  render() {
+    return (
+      <div>Photo Module</div>
+    )
+  }
+}
 
 export default App;
