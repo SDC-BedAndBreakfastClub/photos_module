@@ -30,4 +30,10 @@ const Photo = db.define('photo', {
   },
 });
 
+Photo.readAll = listingId => Photo.findAll({
+  where: {
+    listing_id: listingId,
+  },
+});
+
 module.exports = Photo;
