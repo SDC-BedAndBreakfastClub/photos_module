@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Photo from './Photo';
+import PhotoColumn from './PhotoColumn';
 
 class App extends Component {
   constructor(props) {
@@ -7,30 +9,45 @@ class App extends Component {
 
     this.state = {
       photos: [],
-    }
+      loading: true,
+    };
   }
 
   componentDidMount() {
     axios.get('/api/rooms/100/images')
-      .then((response) => {
-        console.log(response);
-        return response.data;
-      })
+      .then(response => response.data)
       .then((data) => {
         this.setState({
           photos: data,
+          loading: false,
         });
       })
+      // eslint-disable-next-line no-console
       .catch(e => console.error(e));
   }
 
   render() {
-    const { photos } = this.state;
-    return (
-      <div>
-        Photo Module
-      </div>
-    );
+    const { photos, loading } = this.state;
+    const jsx = loading
+      ? <div>Loading!</div>
+      : (
+        <div>
+          <Photo
+            imageUrl={photos[0].image_url}
+            altText={photos[0].alt_text}
+            photoIndex={0}
+          />
+          <PhotoColumn
+            columnType="second_column"
+            photos={photos}
+          />
+          <PhotoColumn
+            columnType="third_column"
+            photos={photos}
+          />
+        </div>
+      );
+    return (jsx);
   }
 }
 
