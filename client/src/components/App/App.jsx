@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+
 import Photo from '../Photo/Photo';
 import PhotoColumn from '../PhotoColumn/PhotoColumn';
+
 import 'normalize.css';
+import styles from './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -32,8 +35,9 @@ class App extends Component {
     const jsx = loading
       ? <div>Loading!</div>
       : (
-        <div>
+        <div className={styles.container}>
           <Photo
+            isFirstPhoto
             imageUrl={photos[0].image_url}
             altText={photos[0].alt_text}
             photoIndex={0}

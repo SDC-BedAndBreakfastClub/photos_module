@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Photo from '../Photo/Photo';
+// import PhotoContainer from '../PhotoContainer/PhotoContainer';
+import styles from './PhotoColumn.css';
 
 const PhotoColumn = ({ photos, columnType }) => {
   if (columnType === 'second_column') {
     return (
-      <div>
+      <div className={styles.column}>
         <Photo
           imageUrl={photos[1].image_url}
           altText={photos[1].alt_text}
@@ -22,7 +24,7 @@ const PhotoColumn = ({ photos, columnType }) => {
   }
   if (columnType === 'third_column') {
     return (
-      <div>
+      <div className={styles.column}>
         <Photo
           imageUrl={photos[3].image_url}
           altText={photos[3].alt_text}
