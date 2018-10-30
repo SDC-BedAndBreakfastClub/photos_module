@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './Photo.css';
+
 const Photo = ({ imageUrl, altText, photoIndex }) => (
-  <img src={imageUrl} alt={altText} data-index={photoIndex} />
+  <img className={styles.Photo} src={imageUrl} alt={altText} data-index={photoIndex} />
 );
 
 Photo.propTypes = {

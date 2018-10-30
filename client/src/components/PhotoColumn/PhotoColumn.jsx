@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Photo from './Photo';
+import Photo from '../Photo/Photo';
 
 const PhotoColumn = ({ photos, columnType }) => {
   if (columnType === 'second_column') {
@@ -36,10 +36,11 @@ const PhotoColumn = ({ photos, columnType }) => {
       </div>
     );
   }
+  return null;
 };
 
 PhotoColumn.propTypes = {
-  photos: PropTypes.isRequired,
+  photos: PropTypes.arrayOf(PropTypes.object).isRequired,
   columnType: PropTypes.string.isRequired,
 };
 

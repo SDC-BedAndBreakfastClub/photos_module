@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Photo from './Photo';
-import PhotoColumn from './PhotoColumn';
+import Photo from '../Photo/Photo';
+import PhotoColumn from '../PhotoColumn/PhotoColumn';
+import 'normalize.css';
 
 class App extends Component {
   constructor(props) {
