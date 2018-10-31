@@ -1,2 +1,4 @@
 # ESLint Ignore file
 bundle.js
+jest.config.js
+enzyme.config.js
