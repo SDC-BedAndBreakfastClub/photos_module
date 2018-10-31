@@ -1,15 +1,18 @@
 .Photo {
+  border: 1px solid rgba(78,78,78);
   display: block;
-  height: auto;
-  width: 100%;
+  width: auto;
+  height: 100%;
   overflow: hidden;
 }
 
 .PhotoContainer {
   box-sizing: border-box;
   width: 100%;
+  height: 50%;
 }
 
 .PhotoContainer__firstPhoto {
   width: 50%;
+  height: 100%;
 }
