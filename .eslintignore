@@ -2,3 +2,4 @@
 bundle.js
 jest.config.js
 enzyme.config.js
+__mocks__
