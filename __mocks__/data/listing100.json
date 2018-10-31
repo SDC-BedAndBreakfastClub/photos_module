@@ -1,0 +1,92 @@
+[
+  {
+      "id": 833,
+      "display_index": 1,
+      "alt_text": "Dolore qui qui ullam quis. Impedit dolorum qui aperiam.",
+      "is_verified_photo": false,
+      "listing_id": 100,
+      "image_url": "https://s3-us-west-1.amazonaws.com/airbnb-clone-photo-module-photos/photos/00001.jpg",
+      "createdAt": "2018-10-26",
+      "updatedAt": "2018-10-26"
+  },
+  {
+      "id": 834,
+      "display_index": 2,
+      "alt_text": "Quis atque at quod ipsam asperiores officia. Vel accusantium nesciunt cupiditate non est.",
+      "is_verified_photo": false,
+      "listing_id": 100,
+      "image_url": "https://s3-us-west-1.amazonaws.com/airbnb-clone-photo-module-photos/photos/00021.jpg",
+      "createdAt": "2018-10-26",
+      "updatedAt": "2018-10-26"
+  },
+  {
+      "id": 835,
+      "display_index": 3,
+      "alt_text": "Tempora voluptatem libero rerum. Nihil sit quae rerum et aut et aspernatur saepe.",
+      "is_verified_photo": false,
+      "listing_id": 100,
+      "image_url": "https://s3-us-west-1.amazonaws.com/airbnb-clone-photo-module-photos/photos/00004.jpg",
+      "createdAt": "2018-10-26",
+      "updatedAt": "2018-10-26"
+  },
+  {
+      "id": 836,
+      "display_index": 4,
+      "alt_text": "Aliquid ut non eum ut dolorem. Odio ipsum et omnis saepe dolores fuga similique.",
+      "is_verified_photo": false,
+      "listing_id": 100,
+      "image_url": "https://s3-us-west-1.amazonaws.com/airbnb-clone-photo-module-photos/photos/00008.jpg",
+      "createdAt": "2018-10-26",
+      "updatedAt": "2018-10-26"
+  },
+  {
+      "id": 837,
+      "display_index": 5,
+      "alt_text": "Eos deleniti aperiam quam vitae non repellendus deleniti qui sunt. Officia eligendi totam omnis autem eligendi.",
+      "is_verified_photo": false,
+      "listing_id": 100,
+      "image_url": "https://s3-us-west-1.amazonaws.com/airbnb-clone-photo-module-photos/photos/00011.jpg",
+      "createdAt": "2018-10-26",
+      "updatedAt": "2018-10-26"
+  },
+  {
+      "id": 838,
+      "display_index": 6,
+      "alt_text": "Nisi minima labore quaerat natus rem repellendus. Non molestiae velit voluptatem itaque.",
+      "is_verified_photo": false,
+      "listing_id": 100,
+      "image_url": "https://s3-us-west-1.amazonaws.com/airbnb-clone-photo-module-photos/photos/00005.jpg",
+      "createdAt": "2018-10-26",
+      "updatedAt": "2018-10-26"
+  },
+  {
+      "id": 839,
+      "display_index": 7,
+      "alt_text": "Beatae et sunt quia eius libero. Illo consectetur velit ut ut non.",
+      "is_verified_photo": false,
+      "listing_id": 100,
+      "image_url": "https://s3-us-west-1.amazonaws.com/airbnb-clone-photo-module-photos/photos/00028.jpg",
+      "createdAt": "2018-10-26",
+      "updatedAt": "2018-10-26"
+  },
+  {
+      "id": 840,
+      "display_index": 8,
+      "alt_text": "Impedit in aliquam a. Quisquam necessitatibus aliquid illum.",
+      "is_verified_photo": false,
+      "listing_id": 100,
+      "image_url": "https://s3-us-west-1.amazonaws.com/airbnb-clone-photo-module-photos/photos/00006.jpg",
+      "createdAt": "2018-10-26",
+      "updatedAt": "2018-10-26"
+  },
+  {
+      "id": 841,
+      "display_index": 9,
+      "alt_text": "Porro ipsum possimus modi quod ullam quia eum ut error. Et rerum quidem aspernatur.",
+      "is_verified_photo": false,
+      "listing_id": 100,
+      "image_url": "https://s3-us-west-1.amazonaws.com/airbnb-clone-photo-module-photos/photos/00007.jpg",
+      "createdAt": "2018-10-26",
+      "updatedAt": "2018-10-26"
+  }
+]
