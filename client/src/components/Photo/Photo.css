@@ -1,0 +1,15 @@
+.Photo {
+  display: block;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+.PhotoContainer {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.PhotoContainer__firstPhoto {
+  width: 50%;
+}
