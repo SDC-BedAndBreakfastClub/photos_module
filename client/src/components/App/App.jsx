@@ -32,7 +32,7 @@ class App extends Component {
 
   render() {
     const { photos, loading } = this.state;
-    const jsx = loading
+    return loading
       ? <div>Loading!</div>
       : (
         <div className={styles.container}>
@@ -52,7 +52,6 @@ class App extends Component {
           />
         </div>
       );
-    return (jsx);
   }
 }
 
