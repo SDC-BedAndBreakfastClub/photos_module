@@ -12,7 +12,7 @@ const Photo = ({
   currentHoveredPhoto,
   updateCurrentHandler,
 }) => {
-  let containerClasses = [styles.PhotoContainer]
+  let containerClasses = [styles.PhotoContainer];
   if (isFirstPhoto) {
     containerClasses.push(styles.PhotoContainer__firstPhoto);
   }
