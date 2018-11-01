@@ -19,6 +19,7 @@ class App extends Component {
     };
 
     this.toggleHeroHovered = this.toggleHeroHovered.bind(this);
+    this.updateCurrentHovered = this.updateCurrentHovered.bind(this);
   }
 
   componentDidMount() {
@@ -62,6 +63,7 @@ class App extends Component {
             isFirstPhoto
             isHeroHovered={isHeroHovered}
             currentHoveredPhoto={currentHoveredPhoto}
+            updateCurrentHandler={this.updateCurrentHovered}
             imageUrl={photos[0].image_url}
             altText={photos[0].alt_text}
             photoIndex={0}
@@ -70,12 +72,14 @@ class App extends Component {
             columnType="second_column"
             isHeroHovered={isHeroHovered}
             currentHoveredPhoto={currentHoveredPhoto}
+            updateCurrentHandler={this.updateCurrentHovered}
             photos={photos}
           />
           <PhotoColumn
             columnType="third_column"
             isHeroHovered={isHeroHovered}
             currentHoveredPhoto={currentHoveredPhoto}
+            updateCurrentHandler={this.updateCurrentHovered}
             photos={photos}
           />
         </div>
