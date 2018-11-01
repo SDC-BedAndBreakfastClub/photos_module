@@ -12,8 +12,36 @@ describe('Photo Component Unit Tests', () => {
         imageUrl="https://via.placeholder.com/150"
         altText="Test"
         photoIndex={0}
+        currentHoveredPhoto={0}
+        updateCurrentHandler={() => {}}
       />,
     );
     expect(wrapper.find('img').length).toEqual(1);
+  });
+  test('it should apply the darken class to the PhotoContainer div when isHeroHovered is true and it\'s not the current photo', () => {
+    const wrapper = shallow(
+      <Photo
+        imageUrl="https://via.placeholder.com/150"
+        altText="Test"
+        photoIndex={0}
+        isHeroHovered
+        currentHoveredPhoto={1}
+        updateCurrentHandler={() => {}}
+      />,
+    );
+    expect(wrapper.find('.PhotoContainer').hasClass('darken')).toBe(true);
+  });
+  test('it shouldn\'t apply the darken class to the PhotoContainer div when isHeroHovered is true and it is the current photo', () => {
+    const wrapper = shallow(
+      <Photo
+        imageUrl="https://via.placeholder.com/150"
+        altText="Test"
+        photoIndex={0}
+        isHeroHovered
+        currentHoveredPhoto={0}
+        updateCurrentHandler={() => {}}
+      />,
+    );
+    expect(wrapper.find('.PhotoContainer').hasClass('darken')).toBe(false);
   });
 });
