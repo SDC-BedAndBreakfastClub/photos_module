@@ -10,7 +10,7 @@ const PhotoColumn = ({
 }) => {
   if (columnType === 'second_column') {
     return (
-      <div className={styles.column}>
+      <div className={[styles.column, styles.second_column].join(' ')}>
         <Photo
           imageUrl={photos[1].image_url}
           altText={photos[1].alt_text}
@@ -32,7 +32,7 @@ const PhotoColumn = ({
   }
   if (columnType === 'third_column') {
     return (
-      <div className={styles.column}>
+      <div className={[styles.column, styles.third_column].join(' ')}>
         <Photo
           imageUrl={photos[3].image_url}
           altText={photos[3].alt_text}

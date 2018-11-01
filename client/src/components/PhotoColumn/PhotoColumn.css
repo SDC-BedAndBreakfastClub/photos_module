@@ -1,5 +1,28 @@
 .column {
-  display: flex;
   flex-direction: column;
-  width: 25%;
+  width: 50%;
+}
+
+.second_column {
+  display: none;
+}
+
+.third_column {
+  display: none;
+}
+
+@media (min-width: 744px) {
+  .second_column {
+    display: flex;
+  }
+}
+
+@media (min-width: 1128px) {
+  .column {
+    width: 25%;
+  }
+
+  .third_column {
+    display: flex
+  }
 }
