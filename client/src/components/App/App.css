@@ -2,6 +2,7 @@
   background-color: black;
   display: flex;
   height: 468px;
+  position: relative;
   width: 100%;
 }
 
