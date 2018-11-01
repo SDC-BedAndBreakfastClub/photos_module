@@ -14,7 +14,11 @@ class App extends Component {
     this.state = {
       photos: [],
       loading: true,
+      isHeroHovered: false,
+      currentHoveredPhoto: 0,
     };
+
+    this.toggleHeroHovered = this.toggleHeroHovered.bind(this);
   }
 
   componentDidMount() {
@@ -30,24 +34,48 @@ class App extends Component {
       .catch(e => console.error(e));
   }
 
+  toggleHeroHovered(isHovered) {
+    this.setState({
+      isHeroHovered: isHovered,
+    });
+  }
+
+  updateCurrentHovered(photoIndex) {
+    this.setState({
+      currentHoveredPhoto: photoIndex,
+    });
+  }
+
   render() {
-    const { photos, loading } = this.state;
+    const {
+      photos, loading, isHeroHovered, currentHoveredPhoto,
+    } = this.state;
     return loading
       ? <div>Loading!</div>
       : (
-        <div className={styles.container}>
+        <div
+          className={styles.App}
+          onMouseEnter={() => this.toggleHeroHovered(true)}
+          onMouseLeave={() => this.toggleHeroHovered(false)}
+        >
           <Photo
             isFirstPhoto
+            isHeroHovered={isHeroHovered}
+            currentHoveredPhoto={currentHoveredPhoto}
             imageUrl={photos[0].image_url}
             altText={photos[0].alt_text}
             photoIndex={0}
           />
           <PhotoColumn
             columnType="second_column"
+            isHeroHovered={isHeroHovered}
+            currentHoveredPhoto={currentHoveredPhoto}
             photos={photos}
           />
           <PhotoColumn
             columnType="third_column"
+            isHeroHovered={isHeroHovered}
+            currentHoveredPhoto={currentHoveredPhoto}
             photos={photos}
           />
         </div>
