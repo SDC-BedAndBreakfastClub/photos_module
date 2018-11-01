@@ -26,5 +26,5 @@ describe('App Component Unit Tests', () => {
   test('it should update the currentHoveredPhoto value in state when updateCurrentHovered is triggered', () => {
     wrapper.instance().updateCurrentHovered(3);
     expect(wrapper.state(['currentHoveredPhoto'])).toEqual(3);
-  })
+  });
 });
