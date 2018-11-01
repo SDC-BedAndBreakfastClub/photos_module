@@ -14,11 +14,17 @@ describe('App Component Unit Tests', () => {
   test('wrapper exists', () => {
     expect(wrapper.find('.container')).toBeDefined();
   });
-  test('it has the correct initialized state prior to componentDidMount', () => {
-    expect(wrapper.state(['photos'])).toEqual([]);
-  });
-  test('it should toggle the isHeroHovered key in state when the mouse enters the component', () => {
-    wrapper.simulate('mouseEnter');
+  test('it should toggle the isHeroHovered value in state when the mouse enters the component', () => {
+    wrapper.simulate('mouseenter');
     expect(wrapper.state(['isHeroHovered'])).toBe(true);
   });
+  test('it should toggle the isHeroHovered value in state when the mouse leaves the component', () => {
+    wrapper.simulate('mouseenter');
+    wrapper.simulate('mouseleave');
+    expect(wrapper.state(['isHeroHovered'])).toBe(false);
+  });
+  test('it should update the currentHoveredPhoto value in state when updateCurrentHovered is triggered', () => {
+    wrapper.instance().updateCurrentHovered(3);
+    expect(wrapper.state(['currentHoveredPhoto'])).toEqual(3);
+  })
 });
