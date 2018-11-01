@@ -14,6 +14,8 @@ beforeEach(() => {
     <PhotoColumn
       photos={mockData}
       columnType="second_column"
+      currentHoveredPhoto={0}
+      updateCurrentHandler={() => {}}
     />,
   );
 });
