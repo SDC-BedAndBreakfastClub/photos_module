@@ -96,7 +96,10 @@ class App extends Component {
             photos={photos}
             showModalHandler={this.showModalHandler}
           />
-          <Modal showModal={showModal} />
+          <Modal
+            showModal={showModal}
+            showModalHandler={this.showModalHandler}
+          />
         </div>
       );
   }
