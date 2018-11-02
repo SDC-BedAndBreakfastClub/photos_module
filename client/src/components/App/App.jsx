@@ -17,6 +17,7 @@ class App extends Component {
       loading: true,
       isHeroHovered: false,
       currentHoveredPhoto: 0,
+      showModal: false,
     };
 
     this.toggleHeroHovered = this.toggleHeroHovered.bind(this);
@@ -45,6 +46,13 @@ class App extends Component {
   updateCurrentHovered(photoIndex) {
     this.setState({
       currentHoveredPhoto: photoIndex,
+    });
+  }
+
+  showModalHandler() {
+    const { showModal } = this.state;
+    this.setState({
+      showModal: !showModal,
     });
   }
 
