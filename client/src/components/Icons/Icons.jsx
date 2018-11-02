@@ -13,7 +13,6 @@ const Icons = ({ name }) => {
             height: '15px',
             width: '15px',
             display: 'inline-block',
-            fill: 'currentcolor',
             marginRight: '12px',
           }}
         >

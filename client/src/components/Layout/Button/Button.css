@@ -1,8 +1,49 @@
 .Button {
-  border-radius: 4px;
+  border: none;
   color: rgb(78, 78, 78);
   cursor: pointer;
   font-weight: 600;
   line-height: 18px;
   padding: 8px 16px;
+  background-color: rgba(0, 0, 0, 0);
+  margin: 0;
+}
+
+.LowerButton {
+    border-radius: 4px;
+    color: rgb(78, 78, 78);
+    cursor: pointer;
+    font-weight: 600;
+    line-height: 18px;
+    padding: 8px 16px;
+}
+
+.container__svg {
+  display: inline-block
+}
+
+.container__svg > svg {
+  margin: 0 !important;
+  fill: rgb(255, 255, 255);
+  stroke: rgb(255, 255, 255);
+}
+
+.container__text {
+  display: none;
+}
+
+@media (min-width: 744px) {
+  .Button {
+    border-radius: 4px;
+    opacity: 1;
+    background-color: rgb(255, 255, 255);
+    margin-left: 12px;
+  }
+  .container__svg > svg {
+    fill: rgb(78, 78, 78);
+    stroke: rgb(78, 78, 78);
+  }
+  .container__text {
+    display: inline-block;
+  }
 }

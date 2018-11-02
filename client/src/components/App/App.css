@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 .App {
   background-color: black;
+  color: rgb(72,72,72);
   display: flex;
+  font-size: 14px;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
   height: 468px;
   position: relative;
   width: 100%;
