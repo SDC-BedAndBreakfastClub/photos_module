@@ -11,6 +11,7 @@ const Photo = ({
   isHeroHovered,
   currentHoveredPhoto,
   updateCurrentHandler,
+  showModalHandler,
 }) => {
   let containerClasses = [styles.PhotoContainer];
   if (isFirstPhoto) {
@@ -24,6 +25,8 @@ const Photo = ({
     <div
       className={containerClasses}
       onMouseEnter={() => updateCurrentHandler(photoIndex)}
+      onClick={() => showModalHandler(true)}
+      role="presentation"
     >
       <img className={styles.Photo} src={imageUrl} alt={altText} />
     </div>
@@ -38,11 +41,13 @@ Photo.propTypes = {
   isHeroHovered: PropTypes.bool,
   currentHoveredPhoto: PropTypes.number.isRequired,
   updateCurrentHandler: PropTypes.func.isRequired,
+  showModalHandler: PropTypes.func,
 };
 
 Photo.defaultProps = {
   isFirstPhoto: false,
   isHeroHovered: false,
+  showModalHandler: null,
 };
 
 export default Photo;

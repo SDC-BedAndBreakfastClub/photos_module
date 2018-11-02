@@ -22,6 +22,7 @@ class App extends Component {
 
     this.toggleHeroHovered = this.toggleHeroHovered.bind(this);
     this.updateCurrentHovered = this.updateCurrentHovered.bind(this);
+    this.showModalHandler = this.showModalHandler.bind(this);
   }
 
   componentDidMount() {
@@ -49,10 +50,9 @@ class App extends Component {
     });
   }
 
-  showModalHandler() {
-    const { showModal } = this.state;
+  showModalHandler(showModal) {
     this.setState({
-      showModal: !showModal,
+      showModal,
     });
   }
 
@@ -77,6 +77,7 @@ class App extends Component {
             imageUrl={photos[0].image_url}
             altText={photos[0].alt_text}
             photoIndex={0}
+            showModalHandler={this.showModalHandler}
           />
           <PhotoColumn
             columnType="second_column"
@@ -84,6 +85,7 @@ class App extends Component {
             currentHoveredPhoto={currentHoveredPhoto}
             updateCurrentHandler={this.updateCurrentHovered}
             photos={photos}
+            showModalHandler={this.showModalHandler}
           />
           <PhotoColumn
             columnType="third_column"
@@ -91,6 +93,7 @@ class App extends Component {
             currentHoveredPhoto={currentHoveredPhoto}
             updateCurrentHandler={this.updateCurrentHovered}
             photos={photos}
+            showModalHandler={this.showModalHandler}
           />
         </div>
       );
