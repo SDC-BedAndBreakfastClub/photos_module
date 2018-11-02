@@ -1,0 +1,15 @@
+.Modal {
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
+  z-index: 1000;
+}
+
+.ModalHeader {
+  height: 86px;
+  width: 100%;
+}
+
+.ModalContent {
+  height: 100%;
+}

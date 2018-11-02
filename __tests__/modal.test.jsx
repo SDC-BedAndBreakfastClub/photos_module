@@ -7,20 +7,29 @@ import Modal from '../client/src/components/Modal/Modal';
 
 describe('Modal Unit Tests', () => {
   test('The wrapper should exist', () => {
-    const wrapper = shallow(<Modal showModal />);
+    const wrapper = shallow(
+      <Modal
+        showModal
+        showModalHandler={() => {}}
+      />,
+    );
     expect(wrapper).toBeDefined();
   });
   test('it should render when the showModal prop is true', () => {
     const wrapper = shallow(
       <Modal
         showModal
+        showModalHandler={() => {}}
       />,
     );
-    expect(wrapper.find('div')).toHaveLength(1);
+    expect(wrapper.find('.Modal')).toHaveLength(1);
   });
   test('it should not render the showModal prop is false', () => {
     const wrapper = shallow(
-      <Modal showModal={false} />,
+      <Modal
+        showModal={false}
+        showModalHandler={() => {}}
+      />,
     );
     expect(wrapper.find('div')).toHaveLength(0);
   });
