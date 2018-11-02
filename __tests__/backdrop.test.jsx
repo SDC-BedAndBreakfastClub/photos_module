@@ -16,7 +16,7 @@ describe('Backdrop Unit Tests', () => {
         showModal
       />,
     );
-    expect(wrapper.find('div')).toHaveLength(1);
+    expect(wrapper.find('div')).toHaveLength(2);
   });
   test('it should not render the showModal prop is false', () => {
     const wrapper = shallow(
