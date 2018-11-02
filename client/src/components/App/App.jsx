@@ -4,6 +4,7 @@ import axios from 'axios';
 import Photo from '../Photo/Photo';
 import PhotoColumn from '../PhotoColumn/PhotoColumn';
 import Layout from '../Layout/Layout';
+import Modal from '../Modal/Modal';
 
 import 'normalize.css';
 import styles from './App.css';
@@ -58,7 +59,7 @@ class App extends Component {
 
   render() {
     const {
-      photos, loading, isHeroHovered, currentHoveredPhoto,
+      photos, loading, isHeroHovered, currentHoveredPhoto, showModal,
     } = this.state;
     return loading
       ? <div>Loading!</div>
@@ -95,6 +96,7 @@ class App extends Component {
             photos={photos}
             showModalHandler={this.showModalHandler}
           />
+          <Modal showModal={showModal} />
         </div>
       );
   }
