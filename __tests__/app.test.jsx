@@ -30,5 +30,7 @@ describe('App Component Unit Tests', () => {
   test('it should toggle the showModal property in state when showModalHandler is triggered', () => {
     wrapper.instance().showModalHandler();
     expect(wrapper.state(['showModal'])).toBe(true);
+    wrapper.instance().showModalHandler();
+    expect(wrapper.state(['showModal'])).toBe(false);
   });
 });
