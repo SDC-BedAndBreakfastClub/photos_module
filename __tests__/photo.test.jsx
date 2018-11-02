@@ -44,4 +44,20 @@ describe('Photo Component Unit Tests', () => {
     );
     expect(wrapper.find('.PhotoContainer').hasClass('darken')).toBe(false);
   });
+  test('it should call the showModalHandler passed in as props when a .PhotoContainer div is clicked', () => {
+    const showModalHandler = jest.fn();
+    const wrapper = shallow(
+      <Photo
+        imageUrl="https://via.placeholder.com/150"
+        altText="Test"
+        photoIndex={0}
+        isHeroHovered
+        currentHoveredPhoto={0}
+        updateCurrentHandler={() => {}}
+        showModalHandler={showModalHandler}
+      />,
+    );
+    wrapper.find('.PhotoContainer').simulate('click');
+    expect(showModalHandler).toHaveBeenCalledTimes(1);
+  });
 });
