@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import Photo from '../Photo/Photo';
 import PhotoColumn from '../PhotoColumn/PhotoColumn';
+import Layout from '../Layout/Layout';
 
 import 'normalize.css';
 import styles from './App.css';
@@ -59,6 +60,7 @@ class App extends Component {
           onMouseEnter={() => this.toggleHeroHovered(true)}
           onMouseLeave={() => this.toggleHeroHovered(false)}
         >
+          <Layout />
           <Photo
             isFirstPhoto
             isHeroHovered={isHeroHovered}
