@@ -4,3 +4,13 @@
   display: block;
   fill: rgb(255, 255, 255);
 }
+
+.btn {
+  background: rgba(0,0,0,0);
+  border: none;
+  margin: 16px 28px 8px;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
