@@ -99,6 +99,8 @@ class App extends Component {
           <Modal
             showModal={showModal}
             showModalHandler={this.showModalHandler}
+            currentPhoto={currentHoveredPhoto}
+            photos={photos}
           />
         </div>
       );

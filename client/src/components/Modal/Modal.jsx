@@ -11,20 +11,33 @@ import ModalPhoto from './ModalPhoto/ModalPhoto';
 class Modal extends Component {
   constructor(props) {
     super(props);
-    const { photos, currentPhoto } = this.props;
+    const { currentPhoto } = this.props;
     this.state = {
       currentPhoto,
-      photos,
     };
 
     this.nextPhotoHandler = this.nextPhotoHandler.bind(this);
     this.prevPhotoHandler = this.prevPhotoHandler.bind(this);
   }
 
-  nextPhotoHandler() {
-    const { currentPhoto, photos } = this.state;
+  componentDidUpdate(prevProps) {
+    const { currentPhoto } = this.props;
+    if (currentPhoto !== prevProps.currentPhoto) {
+      this.onUpdate(currentPhoto);
+    }
+  }
 
-    if (currentPhoto + 1 < photos.length - 1) {
+  onUpdate(currentPhoto) {
+    this.setState({
+      currentPhoto,
+    });
+  }
+
+  nextPhotoHandler() {
+    const { photos } = this.props;
+    const { currentPhoto } = this.state;
+
+    if (currentPhoto + 1 < photos.length) {
       this.setState({
         currentPhoto: currentPhoto + 1,
       });
@@ -36,7 +49,8 @@ class Modal extends Component {
   }
 
   prevPhotoHandler() {
-    const { currentPhoto, photos } = this.state;
+    const { photos } = this.props;
+    const { currentPhoto } = this.state;
 
     if (currentPhoto - 1 >= 0) {
       this.setState({
@@ -50,7 +64,8 @@ class Modal extends Component {
   }
 
   render() {
-    const { showModal, showModalHandler } = this.props;
+    const { showModal, showModalHandler, photos } = this.props;
+    const { currentPhoto } = this.state;
     if (showModal) {
       return (
         <Fragment>
@@ -61,9 +76,13 @@ class Modal extends Component {
             </div>
             <div className={styles.ModalContent}>
               <div className={styles.ModalPhotoContainer}>
-                <ModalLeftButton />
-                
-                <ModalRightButton />
+                <ModalLeftButton
+                  prevPhotoHandler={this.prevPhotoHandler}
+                />
+                <ModalPhoto photo={photos[currentPhoto]} />
+                <ModalRightButton
+                  nextPhotoHandler={this.nextPhotoHandler}
+                />
               </div>
             </div>
             <div className={styles.ModalFooter}>Footer</div>
