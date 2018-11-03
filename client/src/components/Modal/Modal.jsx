@@ -16,6 +16,37 @@ class Modal extends Component {
       currentPhoto,
       photos,
     };
+
+    this.nextPhotoHandler = this.nextPhotoHandler.bind(this);
+    this.prevPhotoHandler = this.prevPhotoHandler.bind(this);
+  }
+
+  nextPhotoHandler() {
+    const { currentPhoto, photos } = this.state;
+
+    if (currentPhoto + 1 < photos.length - 1) {
+      this.setState({
+        currentPhoto: currentPhoto + 1,
+      });
+    } else {
+      this.setState({
+        currentPhoto: 0,
+      });
+    }
+  }
+
+  prevPhotoHandler() {
+    const { currentPhoto, photos } = this.state;
+
+    if (currentPhoto - 1 >= 0) {
+      this.setState({
+        currentPhoto: currentPhoto - 1,
+      });
+    } else {
+      this.setState({
+        currentPhoto: photos.length - 1,
+      });
+    }
   }
 
   render() {
