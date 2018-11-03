@@ -7,6 +7,7 @@ import ModalCloseButton from './ModalCloseButton/ModalCloseButton';
 import ModalLeftButton from './ModalLeftButton/ModalLeftButton';
 import ModalRightButton from './ModalRightButton/ModalRightButton';
 import ModalPhoto from './ModalPhoto/ModalPhoto';
+import ModalGallery from './ModalGallery/ModalGallery';
 
 class Modal extends Component {
   constructor(props) {
@@ -14,10 +15,12 @@ class Modal extends Component {
     const { currentPhoto } = this.props;
     this.state = {
       currentPhoto,
+      showGallery: true,
     };
 
     this.nextPhotoHandler = this.nextPhotoHandler.bind(this);
     this.prevPhotoHandler = this.prevPhotoHandler.bind(this);
+    this.updateCurrentPhoto = this.updateCurrentPhoto.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -63,9 +66,15 @@ class Modal extends Component {
     }
   }
 
+  updateCurrentPhoto(newPhotoIndex) {
+    this.setState({
+      currentPhoto: newPhotoIndex,
+    });
+  }
+
   render() {
     const { showModal, showModalHandler, photos } = this.props;
-    const { currentPhoto } = this.state;
+    const { currentPhoto, showGallery } = this.state;
     if (showModal) {
       return (
         <Fragment>
@@ -85,7 +94,14 @@ class Modal extends Component {
                 />
               </div>
             </div>
-            <div className={styles.ModalFooter}>Footer</div>
+            <div className={styles.ModalFooter}>
+              <ModalGallery
+                currentPhoto={currentPhoto}
+                photos={photos}
+                showGallery={showGallery}
+                updateCurrentPhoto={this.updateCurrentPhoto}
+              />
+            </div>
           </div>
         </Fragment>
       );

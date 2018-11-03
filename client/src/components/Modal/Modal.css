@@ -27,6 +27,7 @@
 }
 
 .ModalFooter {
+  margin-bottom: 24px;
   min-height: 123px;
   width: 100%;
   align-self: flex-end;
