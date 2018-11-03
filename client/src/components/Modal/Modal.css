@@ -1,4 +1,6 @@
 .Modal {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   position: absolute;
   width: 100vw;
@@ -6,10 +8,26 @@
 }
 
 .ModalHeader {
+  align-self: flex-start;
   height: 86px;
   width: 100%;
 }
 
 .ModalContent {
+  display: flex;
   height: 100%;
+  width: 100%;
+}
+
+.ModalPhotoContainer {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.ModalFooter {
+  min-height: 123px;
+  width: 100%;
+  align-self: flex-end;
 }

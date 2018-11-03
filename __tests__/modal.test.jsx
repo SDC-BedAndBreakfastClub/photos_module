@@ -9,6 +9,7 @@ describe('Modal Unit Tests', () => {
   test('The wrapper should exist', () => {
     const wrapper = shallow(
       <Modal
+        currentPhoto={0}
         showModal
         showModalHandler={() => {}}
       />,
@@ -18,15 +19,17 @@ describe('Modal Unit Tests', () => {
   test('it should render when the showModal prop is true', () => {
     const wrapper = shallow(
       <Modal
+        currentPhoto={0}
         showModal
         showModalHandler={() => {}}
       />,
     );
     expect(wrapper.find('.Modal')).toHaveLength(1);
   });
-  test('it should not render the showModal prop is false', () => {
+  test('it should not render when the showModal prop is false', () => {
     const wrapper = shallow(
       <Modal
+        npcurrentPhoto={0}
         showModal={false}
         showModalHandler={() => {}}
       />,
