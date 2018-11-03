@@ -14,6 +14,7 @@ describe('Photo Component Unit Tests', () => {
         photoIndex={0}
         currentHoveredPhoto={0}
         updateCurrentHandler={() => {}}
+        showModalHandler={() => {}}
       />,
     );
     expect(wrapper.find('img').length).toEqual(1);
@@ -27,6 +28,7 @@ describe('Photo Component Unit Tests', () => {
         isHeroHovered
         currentHoveredPhoto={1}
         updateCurrentHandler={() => {}}
+        showModalHandler={() => {}}
       />,
     );
     expect(wrapper.find('.PhotoContainer').hasClass('darken')).toBe(true);
@@ -40,8 +42,41 @@ describe('Photo Component Unit Tests', () => {
         isHeroHovered
         currentHoveredPhoto={0}
         updateCurrentHandler={() => {}}
+        showModalHandler={() => {}}
       />,
     );
     expect(wrapper.find('.PhotoContainer').hasClass('darken')).toBe(false);
+  });
+  test('it should call the showModalHandler passed in as props when a .PhotoContainer div is clicked', () => {
+    const showModalHandler = jest.fn();
+    const wrapper = shallow(
+      <Photo
+        imageUrl="https://via.placeholder.com/150"
+        altText="Test"
+        photoIndex={0}
+        isHeroHovered
+        currentHoveredPhoto={0}
+        updateCurrentHandler={() => {}}
+        showModalHandler={showModalHandler}
+      />,
+    );
+    wrapper.find('.PhotoContainer').simulate('click');
+    expect(showModalHandler).toHaveBeenCalledTimes(1);
+  });
+  test('it should call the showModalHandler with true as an argument', () => {
+    const showModalHandler = jest.fn();
+    const wrapper = shallow(
+      <Photo
+        imageUrl="https://via.placeholder.com/150"
+        altText="Test"
+        photoIndex={0}
+        isHeroHovered
+        currentHoveredPhoto={0}
+        updateCurrentHandler={() => {}}
+        showModalHandler={showModalHandler}
+      />,
+    );
+    wrapper.find('.PhotoContainer').simulate('click');
+    expect(showModalHandler).toHaveBeenCalledWith(true);
   });
 });

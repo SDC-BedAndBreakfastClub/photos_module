@@ -4,6 +4,7 @@ import axios from 'axios';
 import Photo from '../Photo/Photo';
 import PhotoColumn from '../PhotoColumn/PhotoColumn';
 import Layout from '../Layout/Layout';
+import Modal from '../Modal/Modal';
 
 import 'normalize.css';
 import styles from './App.css';
@@ -17,10 +18,12 @@ class App extends Component {
       loading: true,
       isHeroHovered: false,
       currentHoveredPhoto: 0,
+      showModal: false,
     };
 
     this.toggleHeroHovered = this.toggleHeroHovered.bind(this);
     this.updateCurrentHovered = this.updateCurrentHovered.bind(this);
+    this.showModalHandler = this.showModalHandler.bind(this);
   }
 
   componentDidMount() {
@@ -48,9 +51,15 @@ class App extends Component {
     });
   }
 
+  showModalHandler(showModal) {
+    this.setState({
+      showModal,
+    });
+  }
+
   render() {
     const {
-      photos, loading, isHeroHovered, currentHoveredPhoto,
+      photos, loading, isHeroHovered, currentHoveredPhoto, showModal,
     } = this.state;
     return loading
       ? <div>Loading!</div>
@@ -69,6 +78,7 @@ class App extends Component {
             imageUrl={photos[0].image_url}
             altText={photos[0].alt_text}
             photoIndex={0}
+            showModalHandler={this.showModalHandler}
           />
           <PhotoColumn
             columnType="second_column"
@@ -76,12 +86,20 @@ class App extends Component {
             currentHoveredPhoto={currentHoveredPhoto}
             updateCurrentHandler={this.updateCurrentHovered}
             photos={photos}
+            showModalHandler={this.showModalHandler}
           />
           <PhotoColumn
             columnType="third_column"
             isHeroHovered={isHeroHovered}
             currentHoveredPhoto={currentHoveredPhoto}
             updateCurrentHandler={this.updateCurrentHovered}
+            photos={photos}
+            showModalHandler={this.showModalHandler}
+          />
+          <Modal
+            showModal={showModal}
+            showModalHandler={this.showModalHandler}
+            currentPhoto={currentHoveredPhoto}
             photos={photos}
           />
         </div>

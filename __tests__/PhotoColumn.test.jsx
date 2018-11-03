@@ -16,6 +16,7 @@ beforeEach(() => {
       columnType="second_column"
       currentHoveredPhoto={0}
       updateCurrentHandler={() => {}}
+      showModalHandler={() => {}}
     />,
   );
 });

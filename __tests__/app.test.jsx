@@ -27,4 +27,10 @@ describe('App Component Unit Tests', () => {
     wrapper.instance().updateCurrentHovered(3);
     expect(wrapper.state(['currentHoveredPhoto'])).toEqual(3);
   });
+  test('it should toggle the showModal property in state when showModalHandler is triggered', () => {
+    wrapper.instance().showModalHandler(true);
+    expect(wrapper.state(['showModal'])).toBe(true);
+    wrapper.instance().showModalHandler(false);
+    expect(wrapper.state(['showModal'])).toBe(false);
+  });
 });

@@ -6,7 +6,7 @@ import Photo from '../Photo/Photo';
 import styles from './PhotoColumn.css';
 
 const PhotoColumn = ({
-  photos, columnType, isHeroHovered, currentHoveredPhoto, updateCurrentHandler,
+  photos, columnType, isHeroHovered, currentHoveredPhoto, updateCurrentHandler, showModalHandler,
 }) => {
   if (columnType === 'second_column') {
     return (
@@ -18,6 +18,7 @@ const PhotoColumn = ({
           isHeroHovered={isHeroHovered}
           currentHoveredPhoto={currentHoveredPhoto}
           updateCurrentHandler={updateCurrentHandler}
+          showModalHandler={showModalHandler}
         />
         <Photo
           imageUrl={photos[2].image_url}
@@ -26,6 +27,7 @@ const PhotoColumn = ({
           isHeroHovered={isHeroHovered}
           currentHoveredPhoto={currentHoveredPhoto}
           updateCurrentHandler={updateCurrentHandler}
+          showModalHandler={showModalHandler}
         />
       </div>
     );
@@ -40,6 +42,7 @@ const PhotoColumn = ({
           isHeroHovered={isHeroHovered}
           currentHoveredPhoto={currentHoveredPhoto}
           updateCurrentHandler={updateCurrentHandler}
+          showModalHandler={showModalHandler}
         />
         <Photo
           imageUrl={photos[4].image_url}
@@ -48,6 +51,7 @@ const PhotoColumn = ({
           isHeroHovered={isHeroHovered}
           currentHoveredPhoto={currentHoveredPhoto}
           updateCurrentHandler={updateCurrentHandler}
+          showModalHandler={showModalHandler}
         />
       </div>
     );
@@ -61,6 +65,7 @@ PhotoColumn.propTypes = {
   isHeroHovered: PropTypes.bool,
   currentHoveredPhoto: PropTypes.number.isRequired,
   updateCurrentHandler: PropTypes.func.isRequired,
+  showModalHandler: PropTypes.func.isRequired,
 };
 
 PhotoColumn.defaultProps = {
