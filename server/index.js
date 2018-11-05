@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 const Photo = require('./model/index');
 
 const app = express();
@@ -7,6 +8,7 @@ const port = process.env.PORT || 3002;
 
 app.use(morgan('dev'));
 app.use(express.static('public'));
+app.use(cors());
 
 app.get('/api/rooms/:listingId/images', (req, res) => {
   Photo.readAll(req.params.listingId)

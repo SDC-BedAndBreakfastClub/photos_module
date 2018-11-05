@@ -1,3 +1,5 @@
+/* eslint-env browser */
+
 import React, { Component } from 'react';
 import axios from 'axios';
 
@@ -27,7 +29,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('/api/rooms/100/images')
+    axios.get(`http://localhost:3002/api${window.location.pathname}/images`)
       .then(response => response.data)
       .then((data) => {
         this.setState({

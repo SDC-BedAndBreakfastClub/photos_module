@@ -1,13 +1,12 @@
-# Project Name
+# Photo-Module
 
-> Project description
+> Service responsible for rendering a component clone of Airbnb's Photo Module and Modal Gallery.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/BedandBreakfastClub/airbnb-clone-reviews-module
+  - https://github.com/BedandBreakfastClub/airbnb-clone-booking-module
+  - https://github.com/BedandBreakfastClub/airbnb-clone-similar-listings-module
 
 ## Table of Contents
 
@@ -17,14 +16,18 @@
 
 ## Usage
 
-> Some usage instructions
+> Follow the instructions for installation and configuring in development and then run the following commands
 
+```sh
+npm run build
+npm start
+```
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
-- Node 6.13.0
-- etc
+- [Node 8.12.0](https://nodejs.org/en/)
+- [MySQL 5.7](https://www.mysql.com/)
 
 ## Development
 
@@ -33,7 +36,30 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
-npm install -g webpack
 npm install
 ```
 
+### Configuration
+
+From within the root directory:
+
+```sh
+cp config/config.example.js config/config.js
+```
+Edit the `config.js` file and replace the `MYSQL_USER` and `MYSQL_PASS` fields with your username and password.
+
+### Seeding the database
+
+From within the root directory:
+
+```sh
+npm run db:seed
+```
+
+### Running the server
+
+From within the root directory:
+
+```sh
+npm run watch & npm start
+```

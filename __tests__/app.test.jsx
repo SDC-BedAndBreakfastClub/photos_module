@@ -5,6 +5,9 @@ import { shallow } from 'enzyme';
 import App from '../client/src/components/App/App';
 
 let wrapper;
+global.window = {};
+global.window.location = {};
+global.window.location.pathname = '/rooms/100';
 
 beforeEach(() => {
   wrapper = shallow(<App />);
