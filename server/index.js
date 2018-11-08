@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+const path = require('path');
 const Photo = require('./model/index');
 
 const app = express();
@@ -15,6 +16,26 @@ app.get('/api/rooms/:listingId/images', (req, res) => {
     .then(photos => res.json(photos))
     // eslint-disable-next-line no-console
     .catch(e => console.error(e));
+});
+
+app.get('/rooms/:listingId', (req, res) => {
+  const options = {
+    root: path.join(__dirname, '..', 'public'),
+    dotfiles: 'deny',
+    headers: {
+      'x-timestamp': Date.now(),
+      'x-sent': true,
+    },
+  };
+
+  res.sendFile('index.html', options, (err) => {
+    if (err) {
+      console.log(err)
+      res.sendStatus(500);
+    } else {
+      console.log('Index sent');
+    }
+  });
 });
 
 app.listen(port, () => {
