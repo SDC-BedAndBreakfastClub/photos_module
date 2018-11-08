@@ -30,9 +30,11 @@ app.get('/rooms/:listingId', (req, res) => {
 
   res.sendFile('index.html', options, (err) => {
     if (err) {
-      console.log(err)
+      // eslint-disable-next-line no-console
+      console.error(err);
       res.sendStatus(500);
     } else {
+      // eslint-disable-next-line no-console
       console.log('Index sent');
     }
   });
