@@ -1,3 +1,4 @@
+require('dotenv').config();
 const faker = require('faker');
 const { sprintf } = require('sprintf-js');
 const db = require('../../server/db');

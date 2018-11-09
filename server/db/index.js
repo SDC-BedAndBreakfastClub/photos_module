@@ -1,8 +1,7 @@
 const Sequelize = require('sequelize');
-const CONFIG = require('../../config/config');
 
-const db = new Sequelize('airbnb_clone', CONFIG.MYSQL_USER, CONFIG.MYSQL_PASS, {
-  host: 'localhost',
+const db = new Sequelize('airbnb_clone', process.env.MYSQL_USER, process.env.MYSQL_PASSWORD, {
+  host: process.env.MYSQL_HOST,
   dialect: 'mysql',
 });
 
