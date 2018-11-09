@@ -9,9 +9,10 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "node server/index.js",
     "build": "webpack",
     "watch": "webpack --watch",
+    "dev:start": "nodemon server/index.js",
     "db:reset": "mysql -u student -p < server/db/schema/schema.sql",
     "db:seed": "node utils/db/seedDB.js",
     "test": "jest"
@@ -19,6 +20,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "cors": "^2.8.5",
+    "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "morgan": "^1.9.1",
