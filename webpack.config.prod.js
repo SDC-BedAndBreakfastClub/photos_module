@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './client/index.jsx',
   output: {
     path: path.resolve(__dirname, 'public'),
@@ -28,7 +28,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: true,
-              localIdentName: '[name]_[local]_[hash:base64:5]',
+              localIdentName: '[hash:base64:5]',
             },
           },
         ],
@@ -39,5 +39,4 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  devtool: 'inline-source-map',
 };

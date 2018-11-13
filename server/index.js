@@ -3,16 +3,19 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
+const compression = require('compression');
 const Photo = require('./model/index');
 
 const app = express();
 const port = process.env.PORT || 3002;
 
 app.use(morgan('dev'));
+app.use(compression());
 app.use(express.static('public'));
 app.use(cors());
 
 app.get('/api/rooms/:listingId/images', (req, res) => {
+  res.set('Cache-Control', 'no-cache');
   Photo.readAll(req.params.listingId)
     .then(photos => res.json(photos))
     // eslint-disable-next-line no-console

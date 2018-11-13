@@ -30,11 +30,12 @@ class App extends Component {
 
   componentDidMount() {
     let url;
+    const baseUrl = 'http://13.57.190.62';
     if ((/\/rooms\/\d{1,3}/).test(window.location.pathname) === false) {
       const randomListing = Math.ceil(Math.random() * 100);
-      url = `http://localhost:3002/api/rooms/${randomListing}/images`;
+      url = `${baseUrl}/api/rooms/${randomListing}/images`;
     } else {
-      url = `http://localhost:3002/api${window.location.pathname}/images`;
+      url = `${baseUrl}/api${window.location.pathname}/images`;
     }
     axios.get(url)
       .then(response => response.data)

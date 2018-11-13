@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "node server/index.js",
-    "build": "webpack",
+    "build": "webpack --config webpack.config.prod.js",
     "watch": "webpack --watch",
     "dev:start": "nodemon server/index.js",
     "db:reset": "mysql -u student -p < server/db/schema/schema.sql",
@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "compression": "^1.7.3",
     "cors": "^2.8.5",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
