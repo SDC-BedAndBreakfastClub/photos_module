@@ -56,6 +56,6 @@ Photo.removed = (imageId) => Photo.destroy({
   where: {
     id: imageId
   }
-})
+});
 
 module.exports = Photo;

@@ -47,7 +47,7 @@ app.get('/rooms/:listingId', (req, res) => {
 
 app.post('/api/rooms/:listingId/images', (req, res) => {
   Photo.insert(req.body)
-    .then(res.send())
+    .then(res.send("inserted"))
 });
 
 app.put('/api/rooms/:listingId/images/:imageId', (req, res) => {

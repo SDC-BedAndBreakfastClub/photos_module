@@ -63,3 +63,12 @@ From within the root directory:
 ```sh
 npm run watch & npm start
 ```
+
+### CRUD/Endpoints
+
+|Action | Request| Route | Purpose|
+|-------|--------|-------|--------|
+|Create |  Post  | /api/rooms/:listingId/images/ | Insert new images|
+|ReadAll|  GET   | /api/rooms/:listingId/images/ | Get all images|
+|Update | PUT    | /api/rooms/:listingId/images/:imageId/ | Update listing with new image|
+|Delete | DELETE | /api/rooms/:listingId/images/:imageId | Delete image from listing|
