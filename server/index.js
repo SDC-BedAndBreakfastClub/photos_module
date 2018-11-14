@@ -50,20 +50,14 @@ app.post('/api/rooms/:listingId/images', (req, res) => {
     .then(res.send())
 });
 
-app.put('api/rooms/:listingId/images', (req,res, next) => {
-  Photo.update(
-    {
-      display_index: req.body.display_index,
-    alt_text: req.body.alt_text,
-    is_verified_photo: req.body.is_verified_photo,
-    image_url: req.body.image_url
-    },
-    {
-      returning: true, where: {id: req.params.listingId}
-    }).then(function ([ rowsUpdate, [updatedPhotos] ]) {
-      res.json(updatedPhotos)
-  })
-    .catch(next)
+app.put('/api/rooms/:listingId/images/:imageId', (req, res) => {
+  Photo.updated(req.body, req.params.imageId )
+    .then(res.send('updated'))
+});
+
+app.delete('/api/rooms/:listingId/images/:imageId', (req, res) => {
+  Photo.removed(req.params.imageId)
+    .then(res.send('image removed'));
 });
 
 

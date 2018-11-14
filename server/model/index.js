@@ -44,4 +44,18 @@ Photo.insert = body => Photo.create({
     image_url: body.image_url
   });
 
+Photo.updated = (body, imageId) => Photo.update({
+  display_index: body.display_index,
+  alt_text: body.alt_text,
+  is_verified_photo: body.is_verified_photo,
+  image_url: body.image_url
+  },
+  { where: { id: imageId } });
+
+Photo.removed = (imageId) => Photo.destroy({
+  where: {
+    id: imageId
+  }
+})
+
 module.exports = Photo;
