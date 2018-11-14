@@ -63,5 +63,9 @@ const faker = require('faker');
 const path =  require('path');
 const fs = require('fs');
 
-
-const photos = [];
+const listingInfo = [];
+for (let i = 0; i < 1000; i++) {
+  var listings = {};
+  listings.id = i + 1;
+  listings.name = faker.name
+}
