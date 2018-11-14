@@ -36,4 +36,12 @@ Photo.readAll = listingId => Photo.findAll({
   },
 });
 
+Photo.insert = body => Photo.create({
+    display_index: body.display_index,
+    alt_text: body.alt_text,
+    is_verified_photo: body.is_verified_photo,
+    listing_id: body.listing_id,
+    image_url: body.image_url
+  });
+
 module.exports = Photo;

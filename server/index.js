@@ -5,6 +5,7 @@ const cors = require('cors');
 const path = require('path');
 const compression = require('compression');
 const Photo = require('./model/index');
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 3002;
@@ -13,6 +14,7 @@ app.use(morgan('dev'));
 app.use(compression());
 app.use(express.static('public'));
 app.use(cors());
+app.use(bodyParser.json());
 
 app.get('/api/rooms/:listingId/images', (req, res) => {
   res.set('Cache-Control', 'no-cache');
@@ -31,7 +33,6 @@ app.get('/rooms/:listingId', (req, res) => {
       'x-sent': true,
     },
   };
-
   res.sendFile('index.html', options, (err) => {
     if (err) {
       // eslint-disable-next-line no-console
@@ -43,6 +44,28 @@ app.get('/rooms/:listingId', (req, res) => {
     }
   });
 });
+
+app.post('/api/rooms/:listingId/images', (req, res) => {
+  Photo.insert(req.body)
+    .then(res.send())
+});
+
+app.put('api/rooms/:listingId/images', (req,res, next) => {
+  Photo.update(
+    {
+      display_index: req.body.display_index,
+    alt_text: req.body.alt_text,
+    is_verified_photo: req.body.is_verified_photo,
+    image_url: req.body.image_url
+    },
+    {
+      returning: true, where: {id: req.params.listingId}
+    }).then(function ([ rowsUpdate, [updatedPhotos] ]) {
+      res.json(updatedPhotos)
+  })
+    .catch(next)
+});
+
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console

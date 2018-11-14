@@ -3,6 +3,7 @@ const faker = require('faker');
 const { sprintf } = require('sprintf-js');
 const db = require('../../server/db');
 const Photo = require('../../server/model');
+// const fs = require('fs');
 
 const mockImageCount = 34; // Number of mock images currently uploaded to AWS
 

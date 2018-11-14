@@ -1,8 +1,5 @@
 const Sequelize = require('sequelize');
 
-const db = new Sequelize('airbnb_clone', process.env.MYSQL_USER, process.env.MYSQL_PASSWORD, {
-  host: process.env.MYSQL_HOST,
-  dialect: 'mysql',
-});
+const db = new Sequelize('mySQL://root@localhost:3306/airbnb_clone');
 
 module.exports = db;

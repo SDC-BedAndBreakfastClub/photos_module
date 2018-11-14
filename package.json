@@ -13,12 +13,13 @@
     "build": "webpack --config webpack.config.prod.js",
     "watch": "webpack --watch",
     "dev:start": "nodemon server/index.js",
-    "db:reset": "mysql -u student -p < server/db/schema/schema.sql",
+    "db:reset": "mysql -u root < server/db/schema/schema.sql",
     "db:seed": "node utils/db/seedDB.js",
     "test": "jest"
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "compression": "^1.7.3",
     "cors": "^2.8.5",
     "dotenv": "^6.1.0",
