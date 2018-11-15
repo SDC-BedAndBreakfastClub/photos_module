@@ -15,23 +15,10 @@ CREATE TABLE photos (
   listing_id INT NOT NULL,
   image_url text NOT NULL,
   description text NOT NULL,
-  is_verified_photo
+  is_verified_photo BOOLEAN NOT NULL,
   createdAt DATE NOT NULL,
   updatedAt DATE NOT NULL,
-
-
-);
-
-
-CREATE TABLE photos (
-  id INT UNIQUE NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  display_index INT NOT NULL,
-  alt_text VARCHAR(255),
-  is_verified_photo BOOLEAN DEFAULT false,
-  listing_id INT NOT NULL,
-  image_url VARCHAR(2000) NOT NULL,
-  createdAt DATE,
-  updatedAt DATE
+  foreign key (listing_id) references listings (listing_id)
 );
 
 
