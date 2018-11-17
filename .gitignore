@@ -29,3 +29,4 @@ bundle.js
 
 # Dot files
 .env
+*.csv

@@ -13,7 +13,7 @@
     "build": "webpack --config webpack.config.prod.js",
     "watch": "webpack --watch",
     "dev:start": "nodemon server/index.js",
-    "db:reset": "mysql -u student -p < server/db/schema/schema.sql",
+    "db:reset": "psql -f server/db/schema/schema.sql",
     "db:seed": "node utils/db/seedDB.js",
     "test": "jest"
   },
@@ -25,6 +25,8 @@
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "moment": "^2.22.2",
+    "mongodb": "^3.1.9",
+    "mongoose": "^5.3.12",
     "morgan": "^1.9.1",
     "mysql2": "^1.6.1",
     "normalize.css": "^8.0.0",
