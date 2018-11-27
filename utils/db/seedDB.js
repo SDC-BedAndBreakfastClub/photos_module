@@ -3,7 +3,6 @@ const path =  require('path');
 const fs = require('fs');
 const moment = require('moment');
 
-
 const streamListing = fs.createWriteStream(path.join(__dirname, 'listings.csv'));
 streamListing.write('name\n');
 
