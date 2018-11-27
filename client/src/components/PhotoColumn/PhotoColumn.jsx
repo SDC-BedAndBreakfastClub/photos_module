@@ -13,7 +13,7 @@ const PhotoColumn = ({
       <div className={[styles.column, styles.second_column].join(' ')}>
         <Photo
           imageUrl={photos[1].image_url}
-          altText={photos[1].alt_text}
+          description={photos[1].description}
           photoIndex={1}
           isHeroHovered={isHeroHovered}
           currentHoveredPhoto={currentHoveredPhoto}
@@ -22,7 +22,7 @@ const PhotoColumn = ({
         />
         <Photo
           imageUrl={photos[2].image_url}
-          altText={photos[2].alt_text}
+          description={photos[2].description}
           photoIndex={2}
           isHeroHovered={isHeroHovered}
           currentHoveredPhoto={currentHoveredPhoto}

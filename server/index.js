@@ -11,9 +11,12 @@ const port = process.env.PORT || 3002;
 
 app.use(morgan('dev'));
 app.use(compression());
-// app.use(express.static(path.resolve(__dirname, '../public')));
-app.use('/rooms/:listingId', express.static(path.resolve(__dirname, '../public')));
+app.use(express.static(path.resolve(__dirname, '../public')));
 app.use(cors());
+
+app.get('/rooms/:listingId', (req, res) => {
+  res.sendFile(path.join(__dirname, '/index.html'))
+});
 
 app.get('/api/rooms/:listingId/images', (req, res) => {
   // res.set('Cache-Control', 'no-cache');
@@ -29,18 +32,6 @@ app.get('/api/rooms/:listingId/images', (req, res) => {
     // .catch(e => console.error(e));
 });
 
-app.get('/rooms/:listingId', (req, res) => {
-  // const options = {
-  //   root: path.join(__dirname, '..', 'public'),
-  //   dotfiles: 'deny',
-  //   headers: {
-  //     'x-timestamp': Date.now(),
-  //     'x-sent': true,
-  //   },
-  // };
-
-  res.sendFile(path.join(__dirname, '../public/index.html'))
-});
 
 // app.post('/api/rooms/:listingId/images', (req, res) => {
 //   db.addPhoto((err, result) => {

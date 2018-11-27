@@ -36,7 +36,7 @@ const Photo = ({
 Photo.propTypes = {
   isFirstPhoto: PropTypes.bool,
   imageUrl: PropTypes.string.isRequired,
-  altText: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
   photoIndex: PropTypes.number.isRequired,
   isHeroHovered: PropTypes.bool,
   currentHoveredPhoto: PropTypes.number.isRequired,
