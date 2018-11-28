@@ -24,24 +24,22 @@ ORDER BY photos.updatedAt desc
   })
 };
 
-// const addPhotos = (newPhotos, cb) => {
-//   const {
-//     image_url,
-//     description,
-//     is_verified_photo,
-//     createdAt,
-//     updatedAt,
-//   } = newPhotos;
-//   const queryStr = 'INSERT INTO PHOTOS (image_url, description, is_verified_photo, createdAt, updatedAt) VALUES ($1, $2, $3, $4, $5) RETURNING id';
-//   const values = [image_url, description, is_verified_photo, createdAt, updatedAt];
-//   client.query(queryStr, values)
-//     .then(({ rows }) => cb(null, rows))
-//     .catch(err => cb(err));
-// };
+const addPhotos = (newPhotos, cb) => {
+  const {
+    listing_id,
+    image_url,
+    description,
+    is_verified_photo,
+  } = newPhotos;
+  const queryStr = `INSERT INTO photos (listing_id, image_url, description, is_verified_photo) VALUES ($1, $2, $3, $4) RETURNING id`;
+  const values = [listing_id, image_url, description, is_verified_photo];
+  client.query(queryStr, values)
+    .then((res) => cb(null, res))
+    .catch(err => cb(err));
+};
 
 
 
 
-
-module.exports = { photos };
+module.exports = { photos, addPhotos };
 

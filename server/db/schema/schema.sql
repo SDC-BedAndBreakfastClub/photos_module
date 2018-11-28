@@ -16,8 +16,8 @@ CREATE TABLE photos (
   image_url text NOT NULL,
   description text NOT NULL,
   is_verified_photo BOOLEAN NOT NULL,
-  createdAt DATE NOT NULL,
-  updatedAt DATE NOT NULL,
+  createdAt DATE,
+  updatedAt DATE,
   foreign key (listing_id) references listings (listing_id)
 );
 
