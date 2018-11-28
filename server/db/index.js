@@ -38,8 +38,28 @@ const addPhotos = (newPhotos, cb) => {
     .catch(err => cb(err));
 };
 
+const updatePhotos = (update, cb) => {
+  const {
+    id,
+    image_url,
+    description,
+    is_verified_photo,
+  } = update;
+  const queryStr = `UPDATE photos SET image_url = $1, description = $2, is_verified_photo = $3 WHERE id =$4 RETURNING *`;
+  const values = [image_url, description, is_verified_photo, id];
+  client.query(queryStr, values)
+    .then((res) => cb(null, res))
+    .catch(err => cb(err));
+};
+
+const deletePhotos = (id, cb) => {
+  const queryStr = `DELETE FROM photos WHERE id = $1`;
+  client.query(queryStr, [id])
+    .then((res) => cb(null, res))
+    .catch(err => cb(err));
+};
 
 
 
-module.exports = { photos, addPhotos };
+module.exports = { photos, addPhotos, updatePhotos, deletePhotos };
 

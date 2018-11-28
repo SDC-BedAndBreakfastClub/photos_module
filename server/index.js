@@ -32,9 +32,6 @@ app.get('/api/rooms/:listingId/images', (req, res) => {
     }
     res.status(200).send(results)
   })
-    // .then(photos => res.json(photos))
-    // // eslint-disable-next-line no-console
-    // .catch(e => console.error(e));
 });
 
 app.post('/api/rooms/:listingId/images', (req, res) => {
@@ -43,14 +40,34 @@ app.post('/api/rooms/:listingId/images', (req, res) => {
   console.log(body);
   db.addPhotos(body, (err, data) => {
     if (err) {
-      console.log(err)
+      throw err
     } else {
       res.status(201).send(data);
     }
   });
 });
 
+app.put('/api/rooms/:listingId/images/:imageId', (req, res) => {
+  const { body } = req;
+  db.updatePhotos(body, (err, data) => {
+    if (err) {
+      res.status(500).send(err)
+    } else {
+      res.status(209).send(data)
+    }
+  })
+});
 
+app.delete('/api/rooms/:listingId/images/:imageId', (req, res) => {
+  const { body } = req;
+  db.deletePhotos(body.id, (err) => {
+    if (err) {
+      res.sendStatus(500)
+    } else {
+      res.status(204).send('image removed')
+    }
+  })
+});
 
 
 app.listen(port, () => {
