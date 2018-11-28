@@ -24,21 +24,15 @@ ORDER BY photos.updatedAt desc
   })
 };
 
-// const addPhotos = (newListing, cb) => {
-//   const queryAdd = `INSERT INTO photos (listing_id, image_url, description, is_verified_photo, createdAt, updatedAt) VALUES ($1,$2,$3,$4,$5,$6)`;
-//   client.query(queryAdd, newListing)
-//     .catch(e => cb(e.stack));
-// };
-
-// const createPhotos = (info, cb) => {
+// const addPhotos = (newPhotos, cb) => {
 //   const {
 //     image_url,
 //     description,
 //     is_verified_photo,
 //     createdAt,
 //     updatedAt,
-//   } = info;
-//   const queryStr = 'INSERT INTO photos (image_url, description, is_verified_photo, createdAt, updatedAt) VALUES ($1, $2, $3, $4, $5, $6) RETURNING listing_id';
+//   } = newPhotos;
+//   const queryStr = 'INSERT INTO PHOTOS (image_url, description, is_verified_photo, createdAt, updatedAt) VALUES ($1, $2, $3, $4, $5) RETURNING id';
 //   const values = [image_url, description, is_verified_photo, createdAt, updatedAt];
 //   client.query(queryStr, values)
 //     .then(({ rows }) => cb(null, rows))
@@ -46,20 +40,7 @@ ORDER BY photos.updatedAt desc
 // };
 
 
-// const addPhoto = (image_url, description, is_verified_photo, createdAt, updatedAt, callback) => {
-//   const query = `
-//     INSERT INTO photos ( image_url, description, is_verified_photo, createdAt, updatedAt )
-//     VALUES
-//     ( ${image_url}, ${description}, ${is_verified_photo}, ${createdAt}, ${updatedAt} );
-//   `;
-//   client.query(query, (err, result) => {
-//     if (err) {
-//       callback(err, null);
-//     } else {
-//       callback(null, result);
-//     }
-//   });
-// };
+
 
 
 module.exports = { photos };

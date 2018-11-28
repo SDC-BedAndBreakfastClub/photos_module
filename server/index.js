@@ -10,13 +10,11 @@ const app = express();
 const port = process.env.PORT || 3002;
 
 app.use(morgan('dev'));
+app.use(express.json());
 app.use(compression());
-app.use(express.static(path.resolve(__dirname, '../public')));
 app.use(cors());
 
-app.get('/rooms/:listingId', (req, res) => {
-  res.sendFile(path.join(__dirname, '/index.html'))
-});
+app.use('/rooms/:listingId', express.static('public'));
 
 app.get('/api/rooms/:listingId/images', (req, res) => {
   // res.set('Cache-Control', 'no-cache');
