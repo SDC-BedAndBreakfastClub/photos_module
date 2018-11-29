@@ -29,19 +29,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    let url;
-    const baseUrl = 'http://13.57.190.62';
-    if ((/\/rooms\/\d{1,3}/).test(window.location.pathname) === false) {
-      const randomListing = Math.ceil(Math.random() * 100);
-      url = `${baseUrl}/api/rooms/${randomListing}/images`;
-    } else {
-      url = `${baseUrl}/api${window.location.pathname}/images`;
-    }
+    const url = `http://localhost:3002/api${window.location.pathname}images`;
     axios.get(url)
       .then(response => response.data)
       .then((data) => {
         this.setState({
-          photos: data,
+          photos: data.rows,
           loading: false,
         });
       })
@@ -86,7 +79,7 @@ class App extends Component {
             currentHoveredPhoto={currentHoveredPhoto}
             updateCurrentHandler={this.updateCurrentHovered}
             imageUrl={photos[0].image_url}
-            altText={photos[0].alt_text}
+            description={photos[0].description}
             photoIndex={0}
             showModalHandler={this.showModalHandler}
           />

@@ -6,7 +6,7 @@ import styles from './ModalGallery.css';
 const ModalGallery = ({ currentPhoto, photos, showGallery, updateCurrentPhoto }) => (
   <div className={styles.ModalGallery}>
     <div className={styles.ModalGalleryInfo}>
-      <span>{`${currentPhoto + 1}/${photos.length}: ${photos[currentPhoto].alt_text}`}</span>
+      <span>{`${currentPhoto + 1}/${photos.length}: ${photos[currentPhoto].description}`}</span>
       {showGallery ? <span>Hide Gallery</span> : <span>Show Gallery</span>}
     </div>
     <div className={styles.Gallery}>
@@ -16,7 +16,7 @@ const ModalGallery = ({ currentPhoto, photos, showGallery, updateCurrentPhoto })
             <img
               className={i === currentPhoto ? [styles.GalleryItem, styles.selected].join(' ') : styles.GalleryItem}
               src={photo.image_url}
-              alt={photo.alt_text}
+              alt={photo.description}
               onClick={() => updateCurrentPhoto(i)}
               role="presentation"
             />

@@ -1,48 +1,74 @@
 require('dotenv').config();
+const newrelic = require('newrelic');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
 const compression = require('compression');
-const Photo = require('./model/index');
-
+const db = require('./db/index.js');
 const app = express();
 const port = process.env.PORT || 3002;
 
+
 app.use(morgan('dev'));
+app.use(express.json());
 app.use(compression());
-app.use(express.static('public'));
 app.use(cors());
 
-app.get('/api/rooms/:listingId/images', (req, res) => {
-  res.set('Cache-Control', 'no-cache');
-  Photo.readAll(req.params.listingId)
-    .then(photos => res.json(photos))
-    // eslint-disable-next-line no-console
-    .catch(e => console.error(e));
-});
+// app.use('/rooms/:listingId', express.static('public'));
+
+app.use('/rooms/:listingId', express.static(path.resolve(__dirname, '../public')));
 
 app.get('/rooms/:listingId', (req, res) => {
-  const options = {
-    root: path.join(__dirname, '..', 'public'),
-    dotfiles: 'deny',
-    headers: {
-      'x-timestamp': Date.now(),
-      'x-sent': true,
-    },
-  };
+  res.sendFile(path.join(__dirname, '/index.html'))
+});
 
-  res.sendFile('index.html', options, (err) => {
+app.get('/api/rooms/:listingId/images', (req, res) => {
+  // res.set('Cache-Control', 'no-cache');
+  const photos_id = req.params.listingId;
+  db.photos(photos_id, (err, results) => {
     if (err) {
-      // eslint-disable-next-line no-console
-      console.error(err);
-      res.sendStatus(500);
+      throw err
+    }
+    res.status(200).send(results)
+  })
+});
+
+app.post('/api/rooms/:listingId/images', (req, res) => {
+  const { body } = req;
+  body.listing_id = req.params.listingId;
+  console.log(body);
+  db.addPhotos(body, (err, data) => {
+    if (err) {
+      throw err
     } else {
-      // eslint-disable-next-line no-console
-      console.log('Index sent');
+      res.status(201).send(data);
     }
   });
 });
+
+app.put('/api/rooms/:listingId/images/:imageId', (req, res) => {
+  const { body } = req;
+  db.updatePhotos(body, (err, data) => {
+    if (err) {
+      res.status(500).send(err)
+    } else {
+      res.status(209).send(data)
+    }
+  })
+});
+
+app.delete('/api/rooms/:listingId/images/:imageId', (req, res) => {
+  const { body } = req;
+  db.deletePhotos(body.id, (err) => {
+    if (err) {
+      res.sendStatus(500)
+    } else {
+      res.status(204).send('image removed')
+    }
+  })
+});
+
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console

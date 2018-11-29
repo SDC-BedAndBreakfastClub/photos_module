@@ -26,6 +26,8 @@ dist/
 
 #Compiled files
 bundle.js
+newrelic.js
 
 # Dot files
 .env
+*.csv
