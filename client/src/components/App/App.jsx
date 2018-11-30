@@ -29,7 +29,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const url = `http://localhost:3002/api${window.location.pathname}images`;
+    const url = `/api${window.location.pathname}images`;
     axios.get(url)
       .then(response => response.data)
       .then((data) => {
