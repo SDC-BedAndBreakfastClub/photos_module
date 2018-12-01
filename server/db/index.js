@@ -2,8 +2,11 @@ const { Pool, Client } = require('pg');
 
 // connect to database
 const client = new Client ({
-  user: 'dannyngos',
-  database: 'airbnb_photos',
+  host: 'ec2-13-57-226-205.us-west-1.compute.amazonaws.com',
+  port: '5432',
+  user: 'power_user',
+  password: 'sdc123',
+  database: 'airbnbsdc',
 });
 
 client.connect();
